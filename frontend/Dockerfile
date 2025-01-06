@@ -2,15 +2,15 @@ FROM node:18-alpine as build
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package.json package-lock.json ./
 
-RUN yarn install
+RUN npm install
 
 COPY public ./public
 COPY src ./src
 COPY tsconfig.json ./
 
-RUN yarn build
+RUN npm run build
 
 FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
