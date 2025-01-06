@@ -3,7 +3,7 @@ FROM node:18-alpine
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-COPY nest-cli.json tsconfig.json ./
+COPY nest-cli.json tsconfig.json tsconfig.build.json ./ 
 
 RUN npm install
 
