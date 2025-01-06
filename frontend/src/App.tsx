@@ -19,7 +19,7 @@ function App() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get<Task[]>('http://localhost:4000/tasks');
+      const response = await axios.get<Task[]>('https://simple-tasker-backend.onrender.com//tasks');
       setTasks(response.data);
     } catch (error) {
       console.error('Erro ao buscar tarefas:', error);
@@ -30,7 +30,7 @@ function App() {
     if (!newTaskTitle.trim()) return;
 
     try {
-      const response = await axios.post<Task>('http://localhost:4000/tasks', {
+      const response = await axios.post<Task>('https://simple-tasker-backend.onrender.com//tasks', {
         title: newTaskTitle,
       });
       setTasks([...tasks, response.data]);
@@ -42,7 +42,7 @@ function App() {
 
   const toggleCompleteTask = async (task: Task) => {
     try {
-      const response = await axios.patch<Task>(`http://localhost:4000/tasks/${task.id}`, {
+      const response = await axios.patch<Task>(`https://simple-tasker-backend.onrender.com//tasks/${task.id}`, {
         completed: !task.completed,
       });
 
@@ -57,7 +57,7 @@ function App() {
 
   const removeTask = async (taskId: number) => {
     try {
-      await axios.delete(`http://localhost:4000/tasks/${taskId}`);
+      await axios.delete(`https://simple-tasker-backend.onrender.com//tasks/${taskId}`);
       const updatedTasks = tasks.filter((t) => t.id !== taskId);
       setTasks(updatedTasks);
     } catch (error) {
