@@ -19,3 +19,4 @@ Aplicação simples de gerenciamento de tarefas (TODO) utilizando React no front
    git clone https://github.com/usuario/todo-app.git
    cd todo-app
 # simple-tasker
+# simple-tasker
